@@ -1,0 +1,28 @@
+body{
+    background-color: #DAD6C8;
+}
+h1{
+    background-color: red;
+}
+#navbar  {
+    background-color: #C1BFBA;
+    color: black;
+    opacity: 0.65;
+    
+}
+.navbar div .navbar-brand {
+    font-size: x-large;
+    font-weight: 700;
+    
+}
+#navbar-items li {
+    padding: 0 0.5rem;
+}
+#navbar-items li a{
+    color: black;
+    font-weight: 500;
+}
+#navbar-items{
+    margin-left: auto;
+    gap: 1.3rem;
+}
