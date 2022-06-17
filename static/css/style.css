@@ -1,13 +1,14 @@
 body{
     background-color: #DAD6C8;
+    
 }
-h1{
-    background-color: red;
-}
+
 #navbar  {
-    background-color: #C1BFBA;
+    background-color: #333333;
     color: black;
-    opacity: 0.65;
+    opacity: 1;
+    box-shadow: 0 5px 4px grey ;
+    color: whitesmoke;
     
 }
 .navbar div .navbar-brand {
@@ -21,8 +22,41 @@ h1{
 #navbar-items li a{
     color: black;
     font-weight: 500;
+    color: whitesmoke;
 }
 #navbar-items{
     margin-left: auto;
     gap: 1.3rem;
 }
+.nav-link{
+    opacity: 0.6;
+}
+.nav-link:hover{
+    border-radius: 5px;
+    
+    transform: translatey(-3px);
+    opacity: 1;
+    
+}
+
+.active{
+    opacity: 1;
+    color: black;
+    text-shadow: 2px;
+    font-weight: bolder;
+    
+}
+.row .card {
+    background-color: #DAD6C8;
+    border: none; 
+}
+
+.row .card div img{
+    border-radius: 50%;
+    
+}
+
+
+
+
+
