@@ -1,5 +1,6 @@
 body{
-    background-color: #DAD6C8;
+    background-color: #E8E6E2;
+    font-family: 'Roboto', sans-serif;
     
 }
 
@@ -10,6 +11,9 @@ body{
     box-shadow: 0 5px 4px grey ;
     color: whitesmoke;
     
+}
+nav div button span svg{
+    color: whitesmoke;
 }
 .navbar div .navbar-brand {
     font-size: x-large;
@@ -47,16 +51,32 @@ body{
     
 }
 .row .card {
-    background-color: #DAD6C8;
+    background-color: #E8E6E2;
     border: none; 
+    min-height: 500px;
 }
 
 .row .card div img{
     border-radius: 50%;
     
 }
+    
+.card-text{
+    font-weight: 400;
+}
 
+a{
+    text-decoration:none;
+}
 
+footer li a svg{
+     opacity: 0.6;
+    color: black;
+    height: 1.5rem;
+    width: 1.5rem;
+}
 
+footer li a svg:hover{
+    opacity: 1;
 
-
+}
