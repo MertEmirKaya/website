@@ -1,0 +1,23 @@
+{%extends 'layout.html'%}
+{% load humanize %}
+{%block content%}
+
+    <div class="container mb-5" style="background-color: whitesmoke;" id="blog-detail">
+        <main>
+            <div class="row mt-5 pt-3 " >
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title pb-2 border-bottom">{{article.title}}</h1>
+                        <span class="text-muted">Posted on  {{article.created_date}}</span>
+                        <div class="card-text mt-4">{{article.content_upload|safe}}</div>
+                    </div>
+                </div>
+
+
+                                
+            </div>
+            
+        </main>
+    </div>     
+
+{%endblock%}
