@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'main',
     'blog',
     'hitcount',
+    'active_link',
+    
 
 ]
 

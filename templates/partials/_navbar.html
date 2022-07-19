@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm   " id="navbar">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-sm  " id="navbar">
+    <div class="container-fluid w-100">
         <a href="http://127.0.0.1:8000/" ><i class="navbar-brand ms-3 " >Mert Emir Kaya</i></a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#content" >
@@ -8,17 +8,33 @@
               </svg></span>
         </button>
     <div class="collapse navbar-collapse" id="content">
-        <ul class="navbar-nav me-2  pe-5 " id="navbar-items">
+        {% with request.resolver_match.url_name as url_name %}
+            <ul class="navbar-nav me-2  pe-5 " id="navbar-items">
 
-            <li class="nav-item  ">
-                <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
-            </li>               
-            <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-        </ul>
+                <li class="nav-item {% if url_name == 'home' %}active{% endif %}  ">
+                    <a class="nav-link " href="{% url 'home'%}">Home</a>
+                </li> 
+                <li class="nav-item  ">
+                    <a class="nav-link " href="#">Projects</a>
+                </li>               
+                <li class="nav-item {% if 'blog' in url_name  %}active{% endif %}   ">
+                    <a class="nav-link " href="{% url 'blog'%}">Blog</a>
+                </li>
+                
+            </ul>
+        {% endwith %}
     </div>        
 </nav>
+
+
+    <!-- <script>
+        const list=document.querySelectorAll('.nav-item');
+        list.forEach(item => {
+            item.addEventListener('click', e => {
+            document.querySelector(' li.active').classList.remove('active');
+            item.classList.add('active')
+            
+            });
+        });
+
+    </script> -->
