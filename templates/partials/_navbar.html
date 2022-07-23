@@ -10,6 +10,13 @@
     <div class="collapse navbar-collapse" id="content">
         {% with request.resolver_match.url_name as url_name %}
             <ul class="navbar-nav me-2  pe-5 " id="navbar-items">
+                {% if 'blog' in url_name or 'search' in url_name %}
+                    <form class="d-flex" action="{%url 'search'%}" method="post">
+                        {%csrf_token%}
+                        <input class="form-control me-2" placeholder="Search" type="search" name="searched">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                {% endif %}
 
                 <li class="nav-item {% if url_name == 'home' %}active{% endif %}  ">
                     <a class="nav-link " href="{% url 'home'%}">Home</a>

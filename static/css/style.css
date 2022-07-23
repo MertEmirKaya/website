@@ -130,6 +130,14 @@ div#article{
     }
 
 }
+@media(max-width:573px){
+    div#article{
+        max-width: 18rem;
+        margin-left: auto;
+        
+    }
+
+}
 
 
 div#article div.card-body{
@@ -166,11 +174,3 @@ main#blog-detail img{
     max-width: 100%;
     height: auto !important;
 }
-div#card-footer{
-    position: absolute;
-    bottom: 0;
-}
-/* span#subject{
-    position: absolute;
-    bottom: 0;
-}    */
