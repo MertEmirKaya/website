@@ -1,10 +1,11 @@
 html{
     font-size: 16px;
+    
 }
 body{
     background-color: #E8E6E2;
     font-family: 'Roboto', sans-serif;
-    
+    position: relative;
 }
 
 #navbar  {
@@ -13,6 +14,7 @@ body{
     opacity: 1;
     box-shadow: 0 5px 4px grey ;
     color: whitesmoke;
+    z-index: 1;
     
 }
 nav#navbar div a i{
@@ -62,33 +64,40 @@ ul li.active a{
    
     
 }
-
-
-
-
-
-
-.row .card {
+div.card#profile{
     background-color: #E8E6E2;
-    border: none; 
-    min-height: 500px;
-}
-div.row div#profile{
-    border-radius: 1%;
-    box-shadow: 3px 3px 25px gray;
-}
+    border: none;
+    background:rgba(232,230,226,0) ;
 
-.row .card div img#profile-picture{
+}
+div.card#profile img{
     border-radius: 50%;
     
 }
-.row .card div img{
-    border-radius: 3%;
+div.card#profile div.card-body{
+    background:rgba(232,230,226,0) ;
+
 }
+
+div#foto1{
+    left: -270px;
+    top: -200px;
     
-.card-text{
-    font-weight: 400;
 }
+div#foto2{
+    right: 10px;
+    bottom: 30px;
+    z-index: -1;
+    
+}
+
+@media(max-width:773px){
+    div#foto2{
+        display: none;
+        
+    }
+}
+
 
 a{
     text-decoration:none;
@@ -174,3 +183,59 @@ main#blog-detail img{
     max-width: 100%;
     height: auto !important;
 }
+
+@media(max-width:720px){
+    div#article{
+        max-width: 18rem;
+        margin-left: auto;
+        
+    }
+
+}
+
+nav#searchNavbarSecond{
+    background-color: #333333;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+nav#searchNavbarSecond{
+    display: none;
+}
+form#searchBarHidden{
+    display: none;
+}
+form#searchBar{
+    display: flex;
+}
+
+@media(max-width:750px){
+    nav#searchNavbarSecond{
+        display: flex;
+    }
+    form#searchBarHidden{
+        display: flex;
+        margin-left: auto;
+    }
+    form#searchBar{
+        display: none;
+    }
+}
+/* div.card#article{
+    overflow: hidden;
+}
+div.card#article::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,#fff,transparent);
+    transition: 0.5s;
+}
+
+div.card#article:hover::before{
+        left: 100%;
+
+} */

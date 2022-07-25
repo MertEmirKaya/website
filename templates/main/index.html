@@ -1,9 +1,12 @@
 {%extends 'layout.html'%}
 
 {%block content%}
-<main class="container mt-2 mb-4" id="container" style="min-height: 700px;">
+<main class="container mt-2 mb-4" id="container" style="min-height: 670px;">
+    <div class="text-center position-absolute" id="foto1">
+        <img src="/media/3.png" class="img-fluid " alt="" srcset="">
+      </div>
     <div class="row pt-3 "  >
-        <div class="card flex-md-row border-start border-end border-2"  id="profile" >
+        <div class="card flex-md-row "  id="profile" >
             <div class="col-md-3 ">
                 <img src="/media/ss.jpg" alt="" class="card-img-top p-3" id="profile-picture">
             </div>
@@ -27,5 +30,8 @@
         </div>
         
     </div>
+    <div class="text-center position-absolute " id="foto2">
+        <img src="/media/4.png" class="img-fluid " alt="" srcset="">
+      </div>
 </main>
 {%endblock%}

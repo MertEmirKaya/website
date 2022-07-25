@@ -1,9 +1,11 @@
 {%extends 'layout.html'%}
 
 {%block content%}
-
-<div class="container d-flex mb-5" style="min-height: 675px;">
-  <div class="text-alings">categories</div>
+<div class="text-center mt-5" >
+  <img src="/media/screen.png" class="img-fluid " alt="" srcset="">
+</div>
+<!-- <div class="container d-flex mb-5" style="min-height: 675px;">
+  {%include 'partials/_categories.html'%}
   <div class="row " id="blog-row">
     {%for article in articles%}
 
@@ -19,7 +21,7 @@
     
         </div>
           
-        <div class=" btn btn-outline-danger  ms-3 mb-3 position-absolute bottom-0 start-0 " id="subject">{{article.subject}}</div>
+        <div class=" btn btn-outline-primary ms-3 mb-3 position-absolute bottom-0 start-0 " id="subject">{{article.subject}}</div>
         <div class="text-muted position-absolute bottom-0 end-0 mb-3 me-3">{{article.created_date}}</div>
           
 
@@ -28,7 +30,7 @@
 
     {%endfor%}
   </div>
-</div>
+</div> -->
 {%endblock%}
 
 
