@@ -8,8 +8,10 @@ def blog(request):
     articles=Article.objects.all()
     return render(request,'blog/blog.html',{'articles':articles})
 
-def blog_detail(request,pk):
-    article= get_object_or_404(Article, id=pk)
+
+
+def blog_detail(request,pk,category_slug):
+    article= get_object_or_404(Article, id=pk,category__slug=category_slug)
 
     return render(request,'blog/blog-detail.html',{'article':article})
 

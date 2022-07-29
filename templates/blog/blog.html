@@ -1,36 +1,53 @@
 {%extends 'layout.html'%}
 
 {%block content%}
-<div class="text-center mt-5" >
+<!-- <div class="text-center mt-5" >
   <img src="/media/screen.png" class="img-fluid " alt="" srcset="">
-</div>
-<!-- <div class="container d-flex mb-5" style="min-height: 675px;">
-  {%include 'partials/_categories.html'%}
-  <div class="row " id="blog-row">
+</div> -->
+<div class="container d-flex mb-5 justify-content-around" style="min-height: 675px;">
+  
+  <div class="row me-2 col-10" id="blog-row">
     {%for article in articles%}
 
-    <div class="col-10 col-sm-6 col-md-4 col-lg-3    ">
-      <div class="card  mt-4 ms-sm-2 " id="article">
-        <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
-        <div class="card-body h-100">
-          <a href="{% url 'blog_detail' article.pk %}" id="blog-link">
-            <h5 class="card-title" id="article-title">{{article.title}}</h5>
-          </a>
-          <p class="card-text mt-3 pt-1 border-top">{{article.card_headline|truncatechars:50}}</p>
+    <div class="col-10 col-sm-10 col-md-6 col-lg-4 ">
+      <a href="{% url 'article_detail'   article.category.slug  article.pk %}" id="blog-link">
+        <div class="card  mt-4 ms-sm-2 " id="article">
+          <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
+          <div class="card-body h-100">
+            <a href="{% url 'article_detail' article.category.slug article.pk %}" id="blog-link">
+              <h5 class="card-title" id="article-title">{{article.title}}</h5>
+            </a>
+            <p class="card-text mt-3 pt-1 border-top">{{article.card_headline|truncatechars:50}}</p>
 
-    
+
+          </div>
+
+          <div class="btn ms-3 mb-3 position-absolute bottom-0 start-0 " id="subject">
+            {{article.category}}</div>
+          <div class="text-muted position-absolute bottom-0 end-0 mb-3 me-3">{{article.created_date}}</div>
+
+
         </div>
-          
-        <div class=" btn btn-outline-primary ms-3 mb-3 position-absolute bottom-0 start-0 " id="subject">{{article.subject}}</div>
-        <div class="text-muted position-absolute bottom-0 end-0 mb-3 me-3">{{article.created_date}}</div>
-          
-
-      </div>
+      </a>
     </div>
 
     {%endfor%}
-  </div>
-</div> -->
+  </div >
+  {%include 'partials/_categories.html'%}
+</div>
+
+<script>
+  const btns=['btn-outline-primary','btn-outline-secondary','btn-outline-success','btn-outline-danger','btn-outline-info',]
+  
+  const blogCards=document.querySelectorAll('div#subject')
+
+
+ blogCards.forEach(fonk)
+  function fonk(item){
+    var randomIndex = Math.floor(Math.random() * btns.length);
+    item.classList.add(btns[randomIndex])
+  };
+</script>
 {%endblock%}
 
 

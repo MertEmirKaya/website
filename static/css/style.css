@@ -64,6 +64,37 @@ ul li.active a{
    
     
 }
+
+nav#searchNavbarSecond{
+    background-color: #333333;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+nav#searchNavbarSecond{
+    display: none;
+}
+form#searchBarHidden{
+    display: none;
+}
+form#searchBar{
+    display: flex;
+}
+
+@media(max-width:750px){
+    nav#searchNavbarSecond{
+        display: flex;
+    }
+    form#searchBarHidden{
+        display: flex;
+        margin-left: auto;
+    }
+    form#searchBar{
+        display: none;
+    }
+}
+
+
 div.card#profile{
     background-color: #E8E6E2;
     border: none;
@@ -86,8 +117,9 @@ div#foto1{
 }
 div#foto2{
     right: 10px;
-    bottom: 30px;
+    bottom: 20px;
     z-index: -1;
+    
     
 }
 
@@ -124,7 +156,7 @@ div#article{
 
 @media(min-width:576px){
     div#article{
-        max-height: 25rem;
+        min-height: 33.5rem;
     }
 }
 @media(max-width:576px){
@@ -163,9 +195,12 @@ div#article a{
     text-decoration: none;
 }
 
-main.container#blog-detail{
-    border-radius: 2%;
-    box-shadow: 2px 2px 25px gray;
+main.container#blog-detail div.row{
+    background-color: #E8E6E2;
+}
+main.container#blog-detail div.card{
+    border-radius: 1%;
+    box-shadow: 2px 2px 20px gray;
 }
 .row .card {
     background-color: whitesmoke;
@@ -182,6 +217,7 @@ h5#article-title:hover{
 main#blog-detail img{
     max-width: 100%;
     height: auto !important;
+    border-radius: 3%;
 }
 
 @media(max-width:720px){
@@ -193,34 +229,9 @@ main#blog-detail img{
 
 }
 
-nav#searchNavbarSecond{
-    background-color: #333333;
-    opacity: 0.8;
-    z-index: 1;
-}
 
-nav#searchNavbarSecond{
-    display: none;
-}
-form#searchBarHidden{
-    display: none;
-}
-form#searchBar{
-    display: flex;
-}
 
-@media(max-width:750px){
-    nav#searchNavbarSecond{
-        display: flex;
-    }
-    form#searchBarHidden{
-        display: flex;
-        margin-left: auto;
-    }
-    form#searchBar{
-        display: none;
-    }
-}
+
 /* div.card#article{
     overflow: hidden;
 }
