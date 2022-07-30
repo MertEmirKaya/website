@@ -16,6 +16,9 @@ class Category(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
+    def get_absolute_url(self):
+        return reverse("articlesByCategory", kwargs={"category_slug": self.slug})  # new                
+
 class Article(models.Model):
     title= models.CharField(max_length=100)
     category=models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True,blank=True,related_name='category_slug')

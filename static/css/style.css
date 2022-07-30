@@ -9,10 +9,10 @@ body{
 }
 
 #navbar  {
-    background-color: #333333;
+    background-image: linear-gradient(to left,#3E3B3B,#222020);
     color: black;
     opacity: 1;
-    box-shadow: 0 5px 4px grey ;
+    
     color: whitesmoke;
     z-index: 1;
     
@@ -41,11 +41,11 @@ nav div button span svg{
     gap: 1.3rem;
     
 }
-.nav-link{
+a#nav-link.nav-link{
     opacity: 0.6;
     transition: transform 0.3s ;
 }
-.nav-link:hover{
+a#nav-link.nav-link:hover{
     border-radius: 5px;
     
     transform: translatey(-5px);
@@ -56,12 +56,9 @@ ul#navbar-items{
     position: relative;
 }
 
-ul li.active a{
+ul#navbar-items li.active a{
     opacity: 1;
-    color: black;
-    text-shadow: 2px;
-    font-weight: bolder;
-   
+
     
 }
 
@@ -222,31 +219,67 @@ main#blog-detail img{
 
 @media(max-width:720px){
     div#article{
-        max-width: 18rem;
+        min-width: 16rem;
         margin-left: auto;
         
     }
 
 }
 
+div#categoryBar{
+    
+    background-image: linear-gradient(to right,#3E3B3B,#222020)
+    
+}   
 
 
-
-/* div.card#article{
+ul#categories li a {
+    z-index: 1;
+    opacity: 1;
+    color: white;
+    
+    position: relative;
     overflow: hidden;
+    
 }
-div.card#article::before{
+
+ul#categories li a:hover{
+    
+    background-color: #E8E6E2;
+    color: black;
+    
+}
+
+ul#categories li a::before{
     content: '';
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,transparent,#fff,transparent);
+    background-color: #E8E6E2;  
+    
     transition: 0.5s;
 }
 
-div.card#article:hover::before{
-        left: 100%;
+ul#categories li a:hover::before{
+    left: 100%;
+    
+}
 
+/* div.indicator{
+    background-color: #E8E6E2;
+    position: absolute;
+    left: 105px;
+    top: 0%;
+    width: 170px;
+    height: 60px;
+    z-index: -1;
+    border-radius: 6%;
+}
+
+.categoryActive{
+    
+    font-size: large;
+    font-weight: 500;
 } */
