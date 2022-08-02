@@ -192,13 +192,7 @@ div#article a{
     text-decoration: none;
 }
 
-main.container#blog-detail div.row{
-    background-color: #E8E6E2;
-}
-main.container#blog-detail div.card{
-    border-radius: 1%;
-    box-shadow: 2px 2px 20px gray;
-}
+
 .row .card {
     background-color: whitesmoke;
     
@@ -235,20 +229,20 @@ div#categoryBar{
 
 ul#categories li a {
     z-index: 1;
-    opacity: 1;
-    color: white;
+    opacity: 0.8;
+    color: whitesmoke;
     
     position: relative;
     overflow: hidden;
+   
     
+}
+ul#categories li.categoryActive a {
+  opacity: 1;
+  color: blue;
 }
 
-ul#categories li a:hover{
-    
-    background-color: #E8E6E2;
-    color: black;
-    
-}
+
 
 ul#categories li a::before{
     content: '';
@@ -256,7 +250,7 @@ ul#categories li a::before{
     top: 0;
     left: -100%;
     width: 100%;
-    height: 100%;
+    height: 5%;
     background-color: #E8E6E2;  
     
     transition: 0.5s;
@@ -267,19 +261,15 @@ ul#categories li a:hover::before{
     
 }
 
-/* div.indicator{
-    background-color: #E8E6E2;
-    position: absolute;
-    left: 105px;
-    top: 0%;
-    width: 170px;
-    height: 60px;
-    z-index: -1;
-    border-radius: 6%;
+div#other-topics ul a{
+    background-color: inherit;
 }
 
-.categoryActive{
-    
-    font-size: large;
-    font-weight: 500;
-} */
+
+.bcg{
+    background-color: whitesmoke;
+}
+
+
+
+

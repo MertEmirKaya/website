@@ -1,16 +1,19 @@
 <div class="navbar   " id="categoryBar">
     <div class="container  ">
-        
 
-        
+
+
         <ul class="navbar-nav d-flex flex-row w-100 justify-content-around " id="categories">
-            {%for category in categories%}
-                <li class="nav-item " id="category-item">
-                    
+            {% with request.resolver_match.url_name as url_name %}
+                {%for category in categories%}
+
+                <li class="nav-item  " id="category-item">
+
                     <a class="nav-link px-2" href="{% url 'articlesByCategory' category.slug%}">{{category.name}}</a>
-                 
+
                 </li>
 
-            {%endfor%}
-    </div>  
-</div>  
+                {%endfor%}
+            {%endwith%}
+    </div>
+</div>

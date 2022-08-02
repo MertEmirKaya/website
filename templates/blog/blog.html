@@ -15,7 +15,7 @@
         <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
         <div class="card-body h-100">
           <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
-            <h5 class="card-title" id="article-title">{{article.title}}</h5>
+            <h5 class="card-title fw-bold" id="article-title">{{article.title}}</h5>
           </a>
           <p class="card-text mt-3 pt-1 border-top">{{article.card_headline|truncatechars:50}}</p>
 
@@ -33,7 +33,6 @@
   </div>
 </div>
 
-
 <script>
   const btns = ['btn-outline-primary', 'btn-outline-secondary', 'btn-outline-success', 'btn-outline-danger', 'btn-outline-info',]
 
@@ -49,11 +48,3 @@
 {%endblock%}
 
 
-<!-- <div class="card mt-4 me-4" style="width: 18rem;" id="article">
-  <img src="{{article.card_image.url}}" class="card-img-top" >
-  <div class="card-body">
-    <h5 class="card-title">{{article.title}}</h5>
-    <p class="card-text">{{article.headline}}</p>
-    
-  </div>
-</div>   -->

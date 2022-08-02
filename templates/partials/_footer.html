@@ -1,5 +1,9 @@
-<div class="container ">
-    <footer class="d-md-flex   justify-content-between text-white" >
+{% with request.resolver_match.url_name as url_name %}
+<div class="container  ">
+ 
+
+ 
+    <footer class="d-md-flex   justify-content-between text-white "   >
 
         <ul class="list-group list-group-horizontal list-unstyled ">
             <li class="ms-3">
@@ -43,4 +47,5 @@
             <span class="text-muted">All Rights Reserved</span>
         </div>
     </footer>
+{% endwith %}
 </div>

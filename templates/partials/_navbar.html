@@ -14,7 +14,7 @@
 
             {% with request.resolver_match.url_name as url_name %}
             <ul class="navbar-nav me-2  pe-md-5 " id="navbar-items">
-                {% if 'blog' in url_name or 'search' in url_name %}
+                {% if 'blog' in url_name or 'search' in url_name or 'articlesByCategory' in url_name %}
  
                 <form class="nav-item" action="{%url 'search'%}" method="post" id="searchBar">
                     {%csrf_token%}
@@ -41,7 +41,7 @@
 </nav>
 
     {% with request.resolver_match.url_name as url_name %}
-        {% if 'blog' in url_name or 'search'  in url_name %}
+        {% if 'blog' in url_name or 'search'  in url_name or 'articlesByCategory' in url_name  %}
         <nav class="navbar text-white " id="searchNavbarSecond">
             <form class="me-1 me-sm-5" action="{%url 'search'%}" method="post" id="searchBarHidden">
                 {%csrf_token%}

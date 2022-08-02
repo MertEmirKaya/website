@@ -19,11 +19,19 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse("articlesByCategory", kwargs={"category_slug": self.slug})  # new                
 
+
+class Tag(models.Model):
+    name=models.CharField(max_length=99)
+
+    def __str__(self) -> str:
+        return self.name
+
 class Article(models.Model):
     title= models.CharField(max_length=100)
     category=models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True,blank=True,related_name='category_slug')
+    tags=models.ManyToManyField(Tag,null=True,blank=True,related_name='tags')
     card_headline=models.CharField(max_length=100,null=True,blank=True)
-    card_image=models.ImageField(null=True,blank=True,upload_to=upload_to)
+    card_image=models.ImageField(null=True,blank=True,upload_to='%Y/%m/%d')
     content_upload=RichTextUploadingField(blank=True,null=True)
     created_date=models.DateField(auto_now_add=True,null=True,blank=True)
     
