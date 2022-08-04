@@ -5,32 +5,51 @@
   <img src="/media/screen.png" class="img-fluid " alt="" srcset="">
 </div> -->
 {%include 'partials/_categoryBar.html'%}
-<div class="container d-flex mb-5" style="min-height: 675px;">
+<div class="container d-flex mb-5 flex-column" style="min-height: 630px;">
   
   <div class="row " id="blog-row">
-    {%for article in articles%}
+    {%for article in articlesp%}
 
     <div class="col-10 col-sm-6 col-md-4 col-lg-3    ">
-      <div class="card  mt-4 ms-sm-2 " id="article">
-        <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
-        <div class="card-body h-100">
-          <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
-            <h5 class="card-title fw-bold" id="article-title">{{article.title}}</h5>
-          </a>
-          <p class="card-text mt-3 pt-1 border-top">{{article.card_headline|truncatechars:50}}</p>
+      <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
+        <div class="card  mt-4 ms-sm-2 " id="article">
+          <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
+          <div class="card-body h-100">
+            <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
+              <h5 class="card-title fw-bold" id="article-title">{{article.title}}</h5>
+            </a>
+            <p class="card-text mt-3 pt-1 border-top">{{article.card_headline|truncatechars:50}}</p>
 
-    
+      
+          </div>
+            
+          <div class=" btn  btn-sm  ms-3 mb-3 position-absolute bottom-0 start-0 " style="font-size:14px ;" id="subject">{{article.category}}</div>
+          <div class="text-muted position-absolute bottom-0 end-0 mb-3 me-3" id="date"  style="font-size: 15px;">{{article.created_date}}</div>
+            
+
         </div>
-          
-        <div class=" btn  btn-sm  ms-3 mb-3 position-absolute bottom-0 start-0 " style="font-size:14px ;" id="subject">{{article.category}}</div>
-        <div class="text-muted position-absolute bottom-0 end-0 mb-3 me-3"  style="font-size: 15px;">{{article.created_date}}</div>
-          
-
-      </div>
+    </a>
     </div>
 
     {%endfor%}
   </div>
+  {% with request.resolver_match.url_name as url_name %}
+    {%if  articlesp and not 'search' in url_name %}
+      <div class="btn-group d-inline mx-auto mt-4   " role="group" id="pagination" >
+        {%if articlesp.has_previous %}
+          <a class="btn btn-secondary p-1"  href="?page=1">&laquo; First </a>
+          <a  class="btn btn-secondary p-1" href="?page={{articlesp.previous_page_number}}">Previous</a>
+
+        {%endif%}
+        <a class="btn btn-secondary p-1">Page {{articlesp.number}} of {{articlesp.paginator.num_pages}}</a>
+        {%if articlesp.has_next %}
+        <a class="btn btn-secondary p-1" href="?page={{articlesp.next_page_number}}">next</a>
+        <a  class="btn btn-secondary p-1" href="?page={{articlesp.paginator.num_pages}}">Last &raquo;</a>
+        {%endif%}
+      
+      </div>
+    {%endif%}
+  {%endwith%}
 </div>
 
 <script>
@@ -45,6 +64,4 @@
     item.classList.add(btns[randomIndex])
   };
 </script>
-{%endblock%}
-
-
+{%endblock%}  

@@ -144,24 +144,15 @@ footer li a svg:hover{
 
 }
 
-div#article{
-    border-radius:5%;
-    box-shadow: 5px 5px 5px gray ;
-    background-color: whitesmoke;
-    
-}
-
-@media(min-width:576px){
-    div#article{
-        min-height: 33.5rem;
-    }
-}
 @media(max-width:576px){
     nav{
         width: 100%;
     }
 
 }
+
+
+
 @media(max-width:505px){
     div#article{
         max-width: 18rem;
@@ -177,6 +168,17 @@ div#article{
 
 }
 
+div#article div#date{
+    bottom: 0px;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 720px)  {
+    div#article div#date{
+        left: 13px;
+        bottom: 40px;
+    }
+}
+
 
 div#article div.card-body{
    min-height: 13rem;
@@ -185,30 +187,22 @@ div#article div.card-body{
 div#article img#article-img{
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
+    transition: 0.5s;
     
 }
+div#article img#article-img:hover{
+    transform: scale(1.05);
+    
+}
+
+
 div#article a{
     color: black;
     text-decoration: none;
 }
 
-
-.row .card {
-    background-color: whitesmoke;
-    
-}
-pre{    
-    border-radius: 1rem;
-}
-
 h5#article-title:hover{
     color: rebeccapurple;
-}
-
-main#blog-detail img{
-    max-width: 100%;
-    height: auto !important;
-    border-radius: 3%;
 }
 
 @media(max-width:720px){
@@ -219,6 +213,42 @@ main#blog-detail img{
     }
 
 }
+
+div#article{
+    border-radius:5%;
+    box-shadow: 5px 5px 5px gray ;
+    background-color: whitesmoke;
+    overflow: hidden;
+    
+}
+
+@media(min-width:576px){
+    div#article{
+        min-height: 33.5rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 720px)  {
+        div#article div#date{
+           display: none;
+        }
+}
+.row .card {
+    background-color: whitesmoke;
+    
+}
+pre{    
+    border-radius: 1rem;
+}
+
+
+
+main#blog-detail img{
+    max-width: 100%;
+    height: auto !important;
+    border-radius: 3%;
+}
+
 
 div#categoryBar{
     
