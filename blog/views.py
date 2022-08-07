@@ -22,6 +22,14 @@ def articles_by_Category(request,category_slug):
     articlesp=p.get_page(page)
     return render(request,'blog/blog.html',{'articles':articles,'categories':categories,'articlesp':articlesp})
 
+def articles_by_tags(request,tag):
+    articles=Article.objects.filter(tags__name__contains=tag)
+    categories=Category.objects.all()
+    p=Paginator(articles,4)
+    page=request.GET.get('page')    
+    articlesp=p.get_page(page)
+    return render(request,'blog/blog.html',{'articles':articles,'categories':categories,'articlesp':articlesp})
+
 def blog_detail(request,pk,category_slug):
     article= get_object_or_404(Article, id=pk,category__slug=category_slug)
     articles=Article.objects.all()[0:4]

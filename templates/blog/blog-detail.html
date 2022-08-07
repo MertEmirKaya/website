@@ -32,7 +32,7 @@
                     
                     <h3 class="border-bottom mb-3">Search Tags</h3>
                     {%for tag in tags%}
-                    <a href="#" class="btn btn-outline-dark m-1">{{tag.name}}</a>
+                    <a href="{% url 'articlesByTag' tag.name%}" class="btn btn-outline-dark m-1">{{tag.name}}</a>
                     {%endfor%}
                     
                 </div>
