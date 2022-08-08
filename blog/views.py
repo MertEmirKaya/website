@@ -12,7 +12,7 @@ def blog(request):
     page=request.GET.get('page')    
     articlesp=p.get_page(page)
 
-    return render(request,'blog/blog.html',{'articles':articles,'articlesp':articlesp,'categories':categories})
+    return render(request,'blog/blog.html',{'articles':articlesp,'categories':categories})
 
 def articles_by_Category(request,category_slug):
     articles=Article.objects.filter(category__slug=category_slug)
@@ -20,7 +20,7 @@ def articles_by_Category(request,category_slug):
     p=Paginator(articles,4)
     page=request.GET.get('page')    
     articlesp=p.get_page(page)
-    return render(request,'blog/blog.html',{'articles':articles,'categories':categories,'articlesp':articlesp})
+    return render(request,'blog/blog.html',{'categories':categories,'articles':articlesp})
 
 def articles_by_tags(request,tag):
     articles=Article.objects.filter(tags__name__contains=tag)
@@ -28,7 +28,7 @@ def articles_by_tags(request,tag):
     p=Paginator(articles,4)
     page=request.GET.get('page')    
     articlesp=p.get_page(page)
-    return render(request,'blog/blog.html',{'articles':articles,'categories':categories,'articlesp':articlesp})
+    return render(request,'blog/blog.html',{'categories':categories,'articles':articlesp})
 
 def blog_detail(request,pk,category_slug):
     article= get_object_or_404(Article, id=pk,category__slug=category_slug)
@@ -36,7 +36,7 @@ def blog_detail(request,pk,category_slug):
     categories=Category.objects.all()
     tags=Tag.objects.all()
     
-    return render(request,'blog/blog-detail.html',{'articles':articles,'article':article,'categories':categories,'tags':tags})
+    return render(request,'blog/blog-detail.html',{'article':article,'categories':categories,'tags':tags})
 
 
 def searchBar(request):

@@ -228,7 +228,17 @@ div#article{
     }
 }
 
+@media(max-width:400px){
+    div#article{
+        margin-left: auto;
+    }
+}
+
+
 @media only screen and (max-width: 1200px) and (min-width: 720px)  {
+    div#article {
+        min-height:28rem;
+     }
         div#article div#date{
            display: none;
         }

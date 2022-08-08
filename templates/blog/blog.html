@@ -5,15 +5,15 @@
 {%include 'partials/_categoryBar.html'%}
 <div class="container d-flex mb-5 flex-column" style="min-height: 600px;">
 
-  {%if articlesp%}
+  {%if articles%}
 
     
     <div class="row " id="blog-row">
-      {%for article in articlesp%}
+      {%for article in articles%}
 
-      <div class="col-10 col-sm-6 col-md-4 col-lg-3    ">
+      <div class="col-10 col-sm-6 col-md-4 col-lg-3 ms-3 ms-sm-0 ">
         <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
-          <div class="card  mt-4 ms-sm-2 " id="article">
+          <div class="card  mt-4  mx-md-0 " id="article">
             <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
             <div class="card-body h-100">
               <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
@@ -30,22 +30,22 @@
 
           </div>
       </a>
-      </div>
+    </div>
 
       {%endfor%}
     </div>
     {% with request.resolver_match.url_name as url_name %}
-      {%if  articlesp and not 'search' in url_name %}
+      {%if  articles and not articles.paginator.num_pages < 2 %}
         <div class="btn-group d-inline mx-auto mt-4   " role="group" id="pagination" >
-          {%if articlesp.has_previous %}
+          {%if articles.has_previous %}
             <a class="btn btn-secondary p-1"  href="?page=1">&laquo; First </a>
-            <a  class="btn btn-secondary p-1" href="?page={{articlesp.previous_page_number}}">Previous</a>
+            <a  class="btn btn-secondary p-1" href="?page={{articles.previous_page_number}}">Previous</a>
 
           {%endif%}
-          <a class="btn btn-secondary p-1">Page {{articlesp.number}} of {{articlesp.paginator.num_pages}}</a>
-          {%if articlesp.has_next %}
-          <a class="btn btn-secondary p-1" href="?page={{articlesp.next_page_number}}">next</a>
-          <a  class="btn btn-secondary p-1" href="?page={{articlesp.paginator.num_pages}}">Last &raquo;</a>
+          <a class="btn btn-secondary p-1">Page {{articles.number}} of {{articles.paginator.num_pages}}</a>
+          {%if articles.has_next %}
+          <a class="btn btn-secondary p-1" href="?page={{articles.next_page_number}}">next</a>
+          <a  class="btn btn-secondary p-1" href="?page={{articles.paginator.num_pages}}">Last &raquo;</a>
           {%endif%}
         
         </div>
