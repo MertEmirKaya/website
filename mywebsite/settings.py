@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'main',
     'blog',
-    'hitcount',
     'active_link',
     
 

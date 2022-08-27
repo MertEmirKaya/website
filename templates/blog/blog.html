@@ -1,4 +1,10 @@
 {%extends 'layout.html'%}
+{% block title %}Blog | Mert Emir Kaya{% endblock %}
+{% block meta %} Mert Emir Kaya's blog page. He's writing about computer science and web technologies. {% endblock %}
+
+  {% block key %}
+  {%for category in categories %}{{category.name|lower}}, {%endfor%}{%for tag in tags %}{{tag.name|lower}}, {%endfor%}
+  {% endblock %}
 
 {%block content%}
 
@@ -14,7 +20,7 @@
       <div class="col-10 col-sm-6 col-md-4 col-lg-3 ms-3 ms-sm-0 ">
         <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
           <div class="card  mt-4  mx-md-0 " id="article">
-            <img src="{{article.card_image.url}}" class="card-img-top" id="article-img">
+            <img src="{{article.card_image.url}}" class="card-img-top" id="article-img" alt="image about {{article.title}}">
             <div class="card-body h-100">
               <a href="{% url 'article_detail' article.category.slug article.pk  %}" id="blog-link">
                 <h5 class="card-title fw-bold" id="article-title">{{article.title}}</h5>

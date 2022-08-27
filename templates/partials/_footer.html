@@ -1,5 +1,7 @@
 {% with request.resolver_match.url_name as url_name %}
-<div class="container  ">
+    {%if 'article_detail' in url_name %}
+    {%endif %}
+<div class="container"  >
  
 
  

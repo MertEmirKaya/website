@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from blog.models import Article,Category,Tag
 from django.db.models import Q
-
+from random import shuffle
 from django.core.paginator import Paginator
 
 def blog(request):
@@ -11,8 +11,8 @@ def blog(request):
     p=Paginator(articles,4)
     page=request.GET.get('page')    
     articlesp=p.get_page(page)
-
-    return render(request,'blog/blog.html',{'articles':articlesp,'categories':categories})
+    tags=Tag.objects.all()
+    return render(request,'blog/blog.html',{'articles':articlesp,'categories':categories,'tags':tags})
 
 def articles_by_Category(request,category_slug):
     articles=Article.objects.filter(category__slug=category_slug)
@@ -26,20 +26,20 @@ def articles_by_tags(request,tag):
     articles=Article.objects.filter(tags__name__contains=tag)
     categories=Category.objects.all()
     p=Paginator(articles,4)
-    page=request.GET.get('page')    
+    page=request.GET.get('page')        
     articlesp=p.get_page(page)
     return render(request,'blog/blog.html',{'categories':categories,'articles':articlesp})
 
 def blog_detail(request,pk,category_slug):
     article= get_object_or_404(Article, id=pk,category__slug=category_slug)
-    articles=Article.objects.all()[0:4]
+    articles=Article.objects.exclude(id__in=[pk]).order_by('?')[0:5]
     categories=Category.objects.all()
     tags=Tag.objects.all()
-    
-    return render(request,'blog/blog-detail.html',{'article':article,'categories':categories,'tags':tags})
+    article_tags=Tag.objects.filter(tags=pk)
+    return render(request,'blog/blog-detail.html',{'article':article,'categories':categories,'tags':tags,'articles':articles,'article_tags':article_tags})
 
 
-def searchBar(request):
+def searchBar(request):     
     articles=Article.objects.all()
     categories=Category.objects.all()
     p=Paginator(articles,4)
