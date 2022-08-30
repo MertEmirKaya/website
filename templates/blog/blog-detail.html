@@ -46,15 +46,19 @@
 
 
         </div>
+        {%if articles.count  > 0 %}
         <div class="mt-5 ms-3 ms-md-0">
             <ul class="list-group " >
                 <h3 class="border-bottom">Other Articles</h3>
+                
                 {% for article in articles%}
-                <a class="list-group-item border-0 border-bottom fw-bolder  my-3" href="{% url 'article_detail' article.category.slug article.pk  %}" style="background-color: whitesmoke;">{{article.title}}</a>
+                <a class="list-group-item  border-0 border-bottom fw-bolder  my-3" href="{% url 'article_detail' article.category.slug article.pk  %}" style="background-color: whitesmoke;">{{article.title}}</a>
                 {%endfor%}
             </ul>
         </div>
+        
 
+        {%endif%}
 
     </div>
 

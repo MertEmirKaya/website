@@ -3,7 +3,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import  RichTextUploadingField
 from django.urls import reverse
-
+import uuid
 
 def upload_to(instance, filename):
     article_path=str(instance.title).replace(" ","")
@@ -27,9 +27,10 @@ class Tag(models.Model):
         return self.name
 
 class Article(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title= models.CharField(max_length=100)
     category=models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True,blank=True,related_name='category_slug')
-    tags=models.ManyToManyField(Tag,null=True,blank=True,related_name='tags')
+    tags=models.ManyToManyField(Tag,related_name='tags')
     card_headline=models.CharField(max_length=150,null=True,blank=True)
     card_image=models.ImageField(null=True,blank=True,upload_to='%Y/%m/%d')
     content_upload=RichTextUploadingField(blank=True,null=True)
