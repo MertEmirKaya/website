@@ -27,7 +27,6 @@ class Tag(models.Model):
         return self.name
 
 class Article(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title= models.CharField(max_length=100)
     category=models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True,blank=True,related_name='category_slug')
     tags=models.ManyToManyField(Tag,related_name='tags')
@@ -40,4 +39,4 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("article_detail", kwargs={"category_slug": self.category.slug})  # new        
+        return reverse("article_detail", kwargs={"category_slug": self.category.slug})       
