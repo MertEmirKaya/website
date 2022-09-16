@@ -27,7 +27,8 @@ class Tag(models.Model):
         return self.name
 
 class Article(models.Model):
-    title= models.CharField(max_length=100)
+    title= models.CharField(max_length=100,unique=True)
+    slug=models.SlugField(max_length=99,unique=True,null=True)
     category=models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True,blank=True,related_name='category_slug')
     tags=models.ManyToManyField(Tag,related_name='tags')
     card_headline=models.CharField(max_length=150,null=True,blank=True)

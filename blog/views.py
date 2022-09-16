@@ -30,8 +30,9 @@ def articles_by_tags(request,tag):
     articlesp=p.get_page(page)
     return render(request,'blog/blog.html',{'categories':categories,'articles':articlesp})
 
-def blog_detail(request,pk,category_slug):
-    article= get_object_or_404(Article, id=pk,category__slug=category_slug)
+def blog_detail(request,article_slug,category_slug):
+    article= get_object_or_404(Article,slug=article_slug,category__slug=category_slug)
+    pk=article.id
     articles=Article.objects.exclude(id__in=[pk]).order_by('?')[0:5]
     categories=Category.objects.all()
     tags=Tag.objects.all()
@@ -48,7 +49,8 @@ def searchBar(request):
     if request.method=='POST':
         searched=request.POST['searched']
         articlesp=Article.objects.filter(Q(title__contains=searched)|Q(category__slug__contains=searched)|Q(card_headline__contains=searched)|Q(tags__name__contains=searched)).distinct()
-        return render(request,'blog/blog.html',{'articlesp':articlesp,'categories':categories})
+        print(articlesp)
+        return render(request,'blog/blog.html',{'articles':articlesp,'categories':categories})
 
     else:    
         pass

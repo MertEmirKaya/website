@@ -9,11 +9,11 @@
 
 <main class="container-fluid  d-flex justify-content-around mb-5 flex-md-row flex-column "  style="background-color: whitesmoke;" id="blog-detail">
 
-    <div class="row col-12 col-md-9  ms-0  ms-md-5 me-3">
+    <div class="row col-12 col-md-9  ms-0  ms-md-5 me-3 px-0 px-md-5  ">
         <div class="card border-end border-bottom" style="border: none;" id="article-detail">
             <div class="card-body">
-                <h1 class="card-title pb-2 border-bottom mt-2">{{article.title}}</h1>
-                <span class="text-muted">Posted on {{article.created_date}}</span>
+                <h1 class="card-title pb-2 border-bottom mt-3 ps-3">{{article.title}}</h1>
+                <span class="text-muted ps-3">Posted on {{article.created_date}}</span>
                 <div class="card-text mt-4 px-3">{{article.content_upload|safe}}</div>
             </div>
         </div>
